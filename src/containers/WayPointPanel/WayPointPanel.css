@@ -1,22 +1,37 @@
 #waypoint_wrapper {
+    display: inline-block;
     width: 20%;
-    height: 100%;
 }
 
-.wayPointField {
+.waypoint_field {
     width:80%;
+    height: 3em;
+    display: inline-block;
     position: relative;
     transform: translate(-50%,50%);
-    margin-bottom: 2em;
+    margin:0 2em 2em 0;
     top: 50%;
     left: 50%;
 }
 
-#wayPointAddButton {
-    width:50%;
+.waypoint_panel_header {
+    margin-top: 2em;
+    text-align: center;
+}
+
+#waypoint_add_button {
+    width:40%;
+    height: 2em;
     position: relative;
+    display: inline-block;
     transform: translate(-50%,50%);
     margin-bottom: 2em;
-    top: 50%;
-    left: 50%;
+    margin-right: 1em;
+    top: 25%;
+    left: 28%;
+}
+@media (max-width: 36em){
+    #waypoint_wrapper{
+        width: 100vw;
+    }
 }

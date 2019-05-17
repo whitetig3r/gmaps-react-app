@@ -1,12 +1,12 @@
 .loc_input{
     position: relative;
-    height: 25%;
     width: 20%;
+    height: 25%;
     margin: 0 2em;
 }
-
 @media (max-width:36em){
     .loc_input{
-        width: 15%;
+        width: 100%;
+        margin: 1em;
     }
 }
