@@ -9,10 +9,15 @@
 }
 
 #getdir_button {
-    position: relative;
-    margin: 0 2em;
-    height: 20%;
-    width: 10%;
+  margin: 0 2em;
+  height: 20%;
+  width: 10%;
+  position: relative;
+  display: inline-block;
+  background: rgba(51, 112, 64, 0.404);
+  text-align: center;
+  cursor: pointer;
+  color: white;
 }
 
 @media (max-width: 36em) {

@@ -21,7 +21,7 @@
 
 #waypoint_add_button {
     width:40%;
-    height: 2em;
+    height: 3em;
     position: relative;
     display: inline-block;
     transform: translate(-50%,50%);
@@ -29,7 +29,12 @@
     margin-right: 1em;
     top: 25%;
     left: 28%;
+    background: rgba(51, 112, 64, 0.404);
+    text-align: center;
+    cursor: pointer;
+    color: white;
 }
+
 @media (max-width: 36em){
     #waypoint_wrapper{
         width: 100vw;

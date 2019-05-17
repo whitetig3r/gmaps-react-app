@@ -12,7 +12,7 @@ class Dashboard extends Component {
     this.state = {
       activeLocType: "Source",
       directionsVisible: false,
-      source: { lat: 13.0827, lng: 80.2707 },
+      source: { lat: 13.0827, lng: 80.2707 }, // Just for initial render
       destination: { lat: 13.0827, lng: 80.2707 },
       wayPoints: []
     };
@@ -23,21 +23,16 @@ class Dashboard extends Component {
   }
 
   calculateAndRenderDirections = () => {
-    let request = this.state.wayPoints.length !== 0 ? {
+    let request = {
       origin: this.state.source,
       destination: this.state.destination,
-      waypoints: this.state.wayPoints.map( wayPoint => ({
-          location: wayPoint.location,
-          stopover: true
-      }) ),
+      waypoints: this.state.wayPoints.map(wayPoint => ({
+        location: wayPoint.location,
+        stopover: true
+      })),
       optimizeWaypoints: true,
       travelMode: "DRIVING"
-    } : {
-      origin: this.state.source,
-      destination: this.state.destination,
-      travelMode: "DRIVING"
-    }
-
+    } 
     this.setState({
       directionsVisible: true
     }, 
@@ -100,6 +95,8 @@ class Dashboard extends Component {
   }
 
   renderMap = () => {
+    // add this script tag so that React has access to the library
+    // NOTE: adding the script tag to index.html will prove useless given the requirements
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${MAPS_API_KEY}&libraries=places&callback=initMap`
     );
@@ -123,13 +120,14 @@ class Dashboard extends Component {
   }
 
   render() {
+    // using inline styles here owing to conditional nature of styles
     return (
       <main id="wrapper">
           <SourceDestination calculateAndRenderDirections={this.calculateAndRenderDirections} />
           <div id="inner_wrapper">
             <WayPointPanel addWayPointAutoComplete={this.addWayPointAutoComplete} resetWayPoints={this.resetWayPoints}/>
             <div id="map"></div>
-            <div style={this.state.directionsVisible ? {height:'100%'} : {display:'inline-block'} } id="right_panel">
+            <div style={this.state.directionsVisible ? {height:'100%'} : {display:'inline-block'} } id="right_panel"> 
               {
                 !this.state.directionsVisible ?
                   <div id="instruction_for_panel">Your Directions will appear here!</div> : ""
