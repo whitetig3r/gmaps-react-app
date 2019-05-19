@@ -19,7 +19,7 @@
     text-align: center;
 }
 
-#waypoint_add_button {
+.waypoint_add_button {
     width:40%;
     height: 3em;
     position: relative;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { MAPS_API_KEY } from '../../lib/Maps_API_Creds'
-import { initAutoComplete, loadScript } from '../../utils/maps_utils'
+import { initAutoComplete, loadScript, autoCompleteListener } from '../../utils/maps_utils'
 import SourceDestination from '../SourceDestination/SourceDestination'
 import WayPointPanel from '../WayPointPanel/WayPointPanel'
 import './Dashboard.css'
@@ -19,6 +19,10 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.renderMap()
+  }
+
+  componentWillUnmount() {
+    window.google.maps.event.clearInstanceListeners(this.map)
   }
 
   calculateAndRenderDirections = () => {
@@ -47,21 +51,10 @@ class Dashboard extends Component {
       }
     )
   }
-
+  
   bindAutoCompleteListeners = (DOMRef, type = 'waypoint') => {
-    DOMRef.addListener('place_changed', () => {
-      var place = DOMRef.getPlace()
-      if (!place.geometry) {
-        window.alert("No details available for input: '" + place.name + "'")
-        return
-      } else {
-        if (type !== 'waypoint') {
-          this.updateMarkers(place.geometry.location, type)
-        } else {
-          this.addWayPoint(place.geometry)
-        }
-      }
-    })
+    const parentRef = this
+    DOMRef.addListener('place_changed',autoCompleteListener.bind(this,parentRef,DOMRef,type),{passive: true})
   }
 
   updateMarkers = (latLng, locType) => {
