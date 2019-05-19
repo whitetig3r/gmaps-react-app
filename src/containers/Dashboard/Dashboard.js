@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { MAPS_API_KEY } from '../../lib/Maps_API_Creds'
-import { initAutoComplete, loadScript, autoCompleteListener } from '../../utils/maps_utils'
+import {
+  initAutoComplete,
+  loadScript,
+  autoCompleteListener,
+} from '../../utils/maps_utils'
 import SourceDestination from '../SourceDestination/SourceDestination'
 import WayPointPanel from '../WayPointPanel/WayPointPanel'
 import './Dashboard.css'
@@ -51,10 +55,14 @@ class Dashboard extends Component {
       }
     )
   }
-  
+
   bindAutoCompleteListeners = (DOMRef, type = 'waypoint') => {
     const parentRef = this
-    DOMRef.addListener('place_changed',autoCompleteListener.bind(this,parentRef,DOMRef,type),{passive: true})
+    DOMRef.addListener(
+      'place_changed',
+      autoCompleteListener.bind(this, parentRef, DOMRef, type),
+      { passive: true }
+    )
   }
 
   updateMarkers = (latLng, locType) => {

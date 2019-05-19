@@ -3,7 +3,7 @@ import './WayPointPanel.css'
 
 export default function WayPointPanel(props) {
   const [wayPointCounter, setWayPointCount] = useState(0) // React Hooks YAY!
-  
+
   return (
     <div id="waypoint_wrapper">
       <h3 className="waypoint_panel_header">ADD STOPOVERS HERE</h3>

@@ -1,11 +1,11 @@
-.location_container{
-    height: 20%;
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+.location_container {
+  height: 20%;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #getdir_button {
@@ -21,11 +21,11 @@
 }
 
 @media (max-width: 36em) {
-    #getdir_button {
-        width: 100%;
-    }
-    .location_container{
-        margin-top: 2em;
-        margin-bottom: 1em;
-    }
+  #getdir_button {
+    width: 100%;
+  }
+  .location_container {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
 }
