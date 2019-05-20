@@ -12,7 +12,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "formatCoreJS": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/**/*.js",
+    "formatAuxJS": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"

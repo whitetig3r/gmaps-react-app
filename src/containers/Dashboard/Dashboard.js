@@ -5,6 +5,7 @@ import {
   loadScript,
   autoCompleteListener,
 } from '../../utils/maps_utils'
+import { MAP_STYLES } from './map_styles'
 import SourceDestination from '../SourceDestination/SourceDestination'
 import WayPointPanel from '../WayPointPanel/WayPointPanel'
 import './Dashboard.css'
@@ -118,6 +119,7 @@ class Dashboard extends Component {
           ? this.state.source
           : this.state.destination,
       zoom: 15,
+      styles: MAP_STYLES,
     })
 
     this.directionsService = new window.google.maps.DirectionsService()
